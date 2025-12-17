@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FDHSim</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              paper: '#fdfbf7',
+              ink: '#2c2929',
+              'venice-red': '#a63c3c',
+              'venice-gold': '#d4af37',
+            },
+            fontFamily: {
+              serif: ['Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              mono: ['Fira Code', 'Courier New', 'monospace'],
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        background-color: #18181b; /* Zinc 900 */
+        color: #e4e4e7; /* Zinc 200 */
+      }
+      /* Custom scrollbar for research feel */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #27272a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #52525b; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #71717a; 
+      }
+      .prose-research p {
+        margin-bottom: 1.5em;
+        line-height: 1.8;
+      }
+
+      @media print {
+        @page {
+          margin: 0.5cm;
+          size: auto;
+        }
+        
+        body {
+          background-color: white !important;
+          color: black !important;
+          overflow: visible !important;
+        }
+
+        /* Hide everything by default */
+        #root > * {
+            display: none !important;
+        }
+
+        /* Only show the print container */
+        .print-container {
+            display: block !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: auto !important;
+            z-index: 9999 !important;
+            background-color: white !important;
+            color: black !important;
+            overflow: visible !important;
+        }
+
+        /* Ensure internal visible elements are shown */
+        .print-only-visible, .print-only-visible * {
+            visibility: visible !important;
+            display: block !important;
+        }
+        
+        /* Hide print buttons inside the report */
+        button {
+            display: none !important;
+        }
+
+        /* Remove scrollbars */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "diff": "https://esm.sh/diff@5.2.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
